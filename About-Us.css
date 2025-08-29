@@ -1,0 +1,421 @@
+@import url("https://fonts.googleapis.com/css2?family=Ovo&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.main {
+  position: relative;
+  width: 100%;
+  background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.65) 65%,
+      rgba(0, 0, 0, 0.65) 65%
+    ),
+    url(/Foto/2.jpg);
+  background-position: center;
+  background-size: cover;
+  min-height: 150vh; /* Jaga nilai ini agar cukup besar untuk menutupi layar dan konten */
+  flex-grow: 1; /* Penting untuk sticky footer */
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .nav-right {
+    font-family: "Ovo", serif;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .search {
+    width: 100%;
+  }
+
+  .srch {
+    flex: 1;
+    width: auto;
+  }
+
+  .btn {
+    width: auto;
+  }
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 75px;
+  width: 100%;
+  padding: 0 60px;
+  background: transparent;
+  box-sizing: border-box;
+  position: relative; /* Pastikan navbar di atas elemen lain */
+  z-index: 10; /* Lebih tinggi dari slider */
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  font-family: "Ovo", serif;
+}
+
+/* --- btnLogin-popup (sekarang tag <a>) --- */
+.btnLogin-popup {
+  display: inline-block; /* DITAMBAHKAN: Penting agar bisa mengatur width, height, padding */
+  width: 145px;
+  height: 35px;
+  background: transparent;
+  border: 2px solid #fff;
+  outline: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.95em;
+  color: #fff; /* DITAMBAHKAN: Warna teks default (putih) */
+  font-weight: 750;
+  margin-left: 1px;
+  text-align: center; /* DITAMBAHKAN: Untuk menengahkan teks "Login" secara horizontal */
+  line-height: 40px; /* DITAMBAHKAN: Untuk menengahkan teks "Login" secara vertikal (sama dengan height) */
+  text-decoration: none; /* DITAMBAHKAN: Menghilangkan garis bawah link default */
+}
+
+.btnLogin-popup:hover {
+  background: #fff;
+  color: #162938;
+  transition: 0.3s;
+}
+
+.logo-wrapper {
+  flex-shrink: 0;
+  padding-left: 5px;
+}
+
+.logo {
+  color: #ff7200;
+  text-shadow: 4px 4px 5px #000000cb; /*warna outline*/
+  font-size: 40px;
+  font-family: "Ovo", serif;
+  user-select: none;
+}
+
+.menu ul {
+  display: flex;
+  list-style: none;
+  font-size: 20px;
+  gap: 35px;
+  margin-top: 0;
+  padding: 0;
+}
+
+.menu ul li {
+  padding-top: 7px; /* Hapus ini jika mengganggu vertikal alignment, biarkan navbar dan nav-right yang mengatur align-items: center */
+}
+
+.menu ul li a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  font-family: "Ovo", serif;
+  transition: color 0.3s;
+  position: relative; /* DITAMBAHKAN: Ini KUNCI untuk positioning ::after */
+  padding: 5px 0; /* DITAMBAHKAN: Memberi sedikit ruang vertikal */
+  display: inline-block; /* DITAMBAHKAN: Penting untuk padding vertikal dan ::after */
+}
+
+.menu ul li a::after {
+  content: ""; /* Wajib ada untuk pseudoelemen */
+  position: absolute;
+  left: 0;
+  bottom: -1px; /* Sesuaikan ini jika garis tidak pas di bawah teks */
+  width: 100%;
+  height: 3px; /* Ketebalan garis */
+  background: #ff7200; /* Warna garis, saya sarankan warna aksen Anda */
+  border-radius: 2px; /* Sedikit rounded corner untuk garis */
+  transform-origin: right; /* Garis akan membesar dari kanan ke kiri */
+  transform: scaleX(
+    0
+  ); /* Awalnya garis tidak terlihat (skala 0 pada sumbu X) */
+  transition: transform 0.5s ease-in-out; /* Animasi transisi untuk transform */
+}
+
+.menu ul li a:hover::after {
+  transform-origin: left; /* Saat hover, garis membesar dari kiri ke kanan */
+  transform: scaleX(1); /* Garis terlihat penuh (skala 1 pada sumbu X) */
+}
+
+.menu ul li a:hover {
+  color: #ff7200; /* Warna teks saat hover */
+}
+
+::placeholder {
+  color: #fff;
+  font-family: Arial;
+}
+
+.site-footer {
+  background-color: #1a1a1a; /* Warna latar belakang footer, seperti contoh */
+  color: #fff;
+  padding: 40px 60px 40px; /* Padding atas, samping, dan bawah */
+  font-family: Arial, sans-serif;
+  border-top: 1px solid #333; /* Garis tipis di atas footer */
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between; /* Memberi jarak antar bagian footer */
+  flex-wrap: wrap; /* Agar responsif di layar kecil */
+  gap: 30px; /* Jarak antar kolom */
+  margin-bottom: 0px; /* Jarak antara konten footer dan bagian bawah */
+  padding-bottom: 40px;
+  border-bottom: 1px solid #333; /* Garis pemisah dari konten atas footer */
+}
+
+.footer-section {
+  flex: 1; /* Memberi fleksibilitas pada setiap bagian */
+  min-width: 200px; /* Lebar minimum sebelum wrap */
+}
+
+.footer-section h3 {
+  font-size: 1.2em;
+  margin-bottom: 15px;
+  color: #ff7200; /* Warna judul seperti aksen Anda */
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 8px;
+}
+
+.footer-section ul li a {
+  text-decoration: none;
+  color: #ccc; /* Warna link default */
+  transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+  color: #ff7200; /* Warna link saat hover */
+}
+
+/* Styling untuk ikon sosial */
+.social-icons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.social-icons ion-icon {
+  font-size: 2.2em; /* Ukuran ikon lebih besar */
+  color: #ccc;
+  transition: color 0.3s ease;
+}
+
+.social-icons ion-icon:hover {
+  color: #ff7200; /* Warna ikon saat hover */
+}
+
+.whatsapp-break {
+  width: 100%; /* Paksa div ini mengambil seluruh lebar yang tersedia */
+  text-align: left; /* Tengahkan ikon WhatsApp di baris barunya */
+  margin-top: 0px; /* Beri sedikit jarak dari baris ikon di atasnya */
+}
+
+/* Untuk teks nomor telepon di tautan WhatsApp */
+.whatsapp-break a {
+  color: #fff; /* Ganti dengan warna yang Anda inginkan, misalnya orange */
+  text-decoration: none; /* Untuk menghilangkan garis bawah */
+  display: flex; /* Untuk menyejajarkan ikon dan teks jika diperlukan */
+  align-items: center; /* Untuk menyejajarkan vertikal ikon dan teks */
+  gap: 8px; /* Jarak antara ikon dan teks */
+}
+
+.whatsapp-break a:hover {
+  color: #ff7200; /* Warna saat di-hover, sedikit lebih gelap dari warna utama */
+  text-decoration: underline; /* Bisa ditambahkan garis bawah saat hover jika diinginkan */
+}
+
+/* Pastikan styling untuk ikon WhatsApp tetap berlaku */
+.whatsapp-break a ion-icon {
+  font-size: 2.2em; /* Ukuran ikon WhatsApp */
+  color: #fff; /* Warna ikon WhatsApp (bisa sama atau berbeda dengan teks) */
+  transition: color 0.3s ease;
+}
+
+.whatsapp-break a ion-icon:hover {
+  color: #ff7200; /* Warna khusus WhatsApp saat ikon di-hover */
+}
+
+.company-info p {
+  font-size: 0.95em;
+  line-height: 1.5;
+  color: #ccc;
+}
+
+.footer-bottom {
+  text-align: center;
+  font-size: 0.9em;
+  color: #aaa;
+  padding-top: 20px;
+}
+
+.footer-bottom a {
+  color: #ff7200;
+  text-decoration: none;
+}
+
+.footer-bottom a:hover {
+  text-decoration: underline;
+}
+
+/* Sembunyikan elemen dropdown default Google Translate */
+.goog-te-combo {
+  display: none !important;
+}
+.goog-te-gadget {
+  font-size: 0px !important; /* Membuat teks "Google Translate" tidak terlihat */
+  color: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+}
+.goog-te-gadget .goog-te-combo {
+  visibility: hidden !important;
+}
+.goog-logo-link {
+  display: none !important; /* Sembunyikan logo Google Translate */
+}
+.goog-tooltip {
+  display: none !important;
+}
+.VIpgJd-ZVi9od-ORHb-OEVmcd {
+  /* Kelas untuk bar transparan di atas halaman */
+  display: none !important;
+}
+.skiptranslate {
+  /* Kelas untuk bar transparan di atas halaman (juga) */
+  display: none !important;
+}
+body {
+  top: 0px !important; /* Mengatasi margin top yang ditambahkan Google Translate */
+}
+
+.middle-section-wrapper {
+  position: absolute; /* Atau relative, tergantung bagaimana Anda ingin memposisikan anak-anaknya */
+  top: 75px; /* Sesuaikan ini agar dimulai di bawah navbar */
+  left: 0;
+  right: 0;
+  height: auto; /* Biarkan tinggi menyesuaikan konten di dalamnya */
+  min-height: 550px; /* Berikan tinggi minimum agar area hitam terlihat luas */
+  z-index: 0; /* Pastikan di belakang navbar */
+  padding-top: 30px; /* Beri padding dari atas agar tulisan tidak menempel ke tepi */
+  padding-bottom: 30px; /* Beri padding dari bawah */
+  box-sizing: border-box; /* Pastikan padding tidak menambah lebar/tinggi */
+  color: #fff;
+}
+
+.intro-text-wrapper {
+  text-align: center;
+  color: white;
+  padding: 20px;
+  max-width: 900px; /* Batasi lebar teks agar tidak terlalu panjang */
+  margin: 0 auto 50px auto; /* Tengahkan horizontal, beri margin bawah untuk pemisah */
+  font-family: Arial, sans-serif;
+}
+
+.intro-text-wrapper h2 {
+  font-size: 2.8em;
+  margin-bottom: 15px;
+  color: #ff7200; /* Warna aksen seperti logo Anda */
+}
+
+.intro-text-wrapper p {
+  font-size: 1.2em;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.intro-text-wrapper span {
+  color: #ff7200;
+  font-size: 30px;
+}
+
+/* .intro-text-wrapper .cta-button {
+  background-color: #ff7200;
+  color: white; /* Warna teks pada tombol */
+/*padding: 15px 30px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  /* Tambahkan atau pastikan tidak ada text-decoration di sini jika tombolnya adalah link langsung */
+/* text-decoration: none; /* Ini mungkin berlaku jika cta-button itu sendiri adalah tag <a> */
+/*} 
+
+.intro-text-wrapper .cta-button:hover {
+  background-color: #e66000;
+}
+
+.intro-text-wrapper .cta-button a {
+  text-decoration: none; /* Ini yang paling mungkin menghilangkan garis bawah */
+/*color: white; /* Pastikan warna teksnya tetap putih */
+/*} 
+
+/* .intro-text-wrapper .cta-button a:hover {
+  color: white; /* Pastikan warna teks tidak berubah saat hover jika tidak diinginkan */
+/*} */
+
+.company-info p {
+  font-size: 0.95em;
+  line-height: 1.5;
+  color: #ccc;
+  /* Mungkin perlu mengatur margin-bottom jika ada jarak yang aneh */
+  margin-bottom: 5px; /* Sesuaikan jika perlu */
+}
+
+.location-link {
+  margin-top: 10px; /* Memberi jarak dari teks di atasnya (tanggal berdiri) */
+  text-align: left; /* Sesuaikan jika Anda ingin rata tengah atau kanan */
+}
+
+.location-link a {
+  color: #fff; /* Warna teks lokasi, misalnya putih */
+  text-decoration: none; /* Menghilangkan garis bawah pada link */
+  font-weight: bold; /* Opsional: membuat teks lebih tebal */
+  transition: color 0.3s ease; /* Transisi halus saat hover */
+  display: flex; /* Menggunakan flexbox untuk mensejajarkan ikon dan teks */
+  align-items: center; /* Menyelaraskan ikon dan teks secara vertikal */
+  gap: 8px; /* Jarak antara ikon dan teks */
+}
+
+.location-link a:hover {
+  color: #ff7200; /* Warna saat di-hover, misalnya oranye aksen Anda */
+  text-decoration: underline; /* Opsional: Munculkan garis bawah saat hover */
+}
+
+.location-link ion-icon {
+  font-size: 1.5em; /* Ukuran ikon lokasi, sesuaikan */
+  color: #ff7200; /* Warna ikon lokasi, misalnya oranye */
+  transition: color 0.3s ease; /* Transisi halus saat hover */
+}
+
+.location-link a:hover ion-icon {
+  color: #e66000; /* Warna ikon saat di-hover */
+}

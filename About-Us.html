@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Latihan" />
+    <meta name="keyword" content="HTML, CSS, JavaScript" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Bengkel Rony Pratama" />
+    <title>Bengkel Rony Pratama</title>
+    <link rel="stylesheet" href="About-Us.css" />
+    <link rel="icon" type="picture/x-icon" href="/Foto/2.jpg" />
+  </head>
+  <body>
+    <div class="main">
+      <div class="top-section">
+        <div class="navbar">
+          <div class="logo-wrapper">
+            <h2 class="logo">Rony Pratama</h2>
+          </div>
+
+          <div class="nav-right">
+            <div class="menu">
+              <ul>
+                <li><a href="Home.html">Home</a></li>
+                <li><a href="Service.html">Service</a></li>
+                <li><a href="About-Us.html">About Us</a></li>
+                <a href="Login.html" class="btnLogin-popup">Login</a> 
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="middle-section-wrapper" id="about-us-section">
+            <div class="intro-text-wrapper">
+              <h2>Keunggulan Bengkel Rony Pratama</h2>
+              <p>
+                Beroperasi sejak <span id="year-established"></span>, Bengkel
+                Rony Pratama telah mengukuhkan diri sebagai mitra terpercaya
+                bagi industri maritim dan sektor lainnya yang mengandalkan
+                kinerja dinamo optimal. Kami memiliki pemahaman mendalam tentang
+                kompleksitas sistem kelistrikan dinamo, baik untuk mesin kapal,
+                generator, hingga peralatan industri. <br /><br />
+                Tim teknisi kami dibekali dengan keahlian spesifik dan
+                pengalaman bertahun-tahun dalam menangani berbagai jenis dan
+                merek dinamo. Kami menggunakan metode diagnostik presisi dan
+                proses perbaikan yang terstandarisasi, didukung oleh suku cadang
+                berkualitas untuk memastikan setiap dinamo berfungsi maksimal
+                dan tahan lama. Keamanan dan efisiensi operasional Anda adalah
+                fokus utama kami dari sejak didirikan.
+              </p>
+              <!-- <button class="cta-button">
+                <a href="#contact-us-section">KONSULTASI GRATIS</a>
+              </button> -->
+            </div>
+          </div>
+      </div>
+    </div>
+    <footer class="site-footer">
+      <div class="footer-content">
+        <div class="footer-section language-switcher">
+          <h3>Language</h3>
+          <ul>
+            <li><a href="#" lang="en">English</a></li>
+            <li><a href="#" lang="id">Indonesia</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section social-media">
+          <h3>Social Media</h3>
+          <div class="social-icons">
+            <a href="https://www.facebook.com/ganefsetiabudi.budi"
+              ><ion-icon name="logo-facebook"></ion-icon
+            ></a>
+            <a href="https://www.instagram.com/ganefsetiabudi"
+              ><ion-icon name="logo-instagram"></ion-icon
+            ></a>
+            <a href="mailto:ganef.gsb@gmail.com"
+              ><ion-icon name="mail"></ion-icon
+            ></a>
+            <div class="whatsapp-break">
+              <a href="https://wa.me/6282140428299" target="_blank"
+                ><ion-icon name="logo-whatsapp"></ion-icon>+62-821-4042-8299</a
+              >
+              <br><a href="https://wa.me/6281259990077" target="_blank"
+                ><ion-icon name="logo-whatsapp"></ion-icon>+62-812-5999-0077</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-section company-info">
+          <h3>Tentang Kami</h3>
+          <p>Bengkel Rony Pratama didirikan pada tahun<span id="year-established"></span>. <br>
+            <div class="location-link">
+                <a href="https://maps.app.goo.gl/uNhq2i59SjidreLb9" target="_blank" rel="noopener noreferrer">
+                    <ion-icon name="location-outline"></ion-icon>
+                    Surabaya, Pelabuhan Perak
+                </a>
+            </div>
+          </p> <!-- Pastikan tag p yang membungkus tahun didirikan sudah ditutup dengan benar -->
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>
+          &copy; <span id="current-year"></span> Bengkel Rony Pratama. All
+          rights reserved.
+        </p>
+      </div>
+    </footer>
+    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+    <script src="Service.js"></script>
+    <script>
+      // Untuk mengisi tahun secara otomatis
+      document.getElementById("current-year").textContent =
+        new Date().getFullYear();
+      // Ganti dengan tahun pendirian bengkel Anda
+      document.getElementById("year-established").textContent = "2020"; // Contoh: Ganti dengan tahun yang benar
+    </script>
+    <div id="google_translate_element" style="display: none"></div>
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement(
+          {
+            pageLanguage: "id", // Ganti dengan bahasa asli website Anda
+            includedLanguages: "en,es,id", // Bahasa yang ingin disediakan
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+          },
+          "google_translate_element"
+        );
+      }
+    </script>
+    <script
+      type="text/javascript"
+      src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+    ></script>
+  </body>
+</html>
